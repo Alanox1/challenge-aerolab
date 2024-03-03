@@ -1,19 +1,40 @@
-import * as React from "react";
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Route, Routes, BrowserRouter } from 'react-router-dom';
+import { SpinnerCircular } from 'spinners-react';
+import Header from "../components/pages/header/Header";
+import { useProductsAndPointsStore } from "../store/productsAndPointsStore";
+import Image from "../components/pages/image/Image";
+import Products from "../components/pages/products/Products";
+import Home from "../components/common/home/Home";
+import History from "../components/pages/history/History";
 
-import logo from "../assets/logo.svg";
-
-import styles from "./App.module.scss";
 
 const App: React.FC = () => {
+  const getUserData = useProductsAndPointsStore(state => state.getUserData)
+  const loading  = useProductsAndPointsStore(state => state.loading)
+  const getProducts = useProductsAndPointsStore(state => state.getProducts)
+  
+  useEffect(() => {
+    getUserData()
+    getProducts()
+  }, [])
+
+
   return (
-    <main className={styles.container}>
-      <header className={styles.header}>
-        <h1>
-          <img alt="Aerolab" src={logo} width={128} />
-        </h1>
-        <h3>Lets get this party started</h3>
-      </header>
-    </main>
+    <>
+     <BrowserRouter> 
+        {loading &&  <div className="flex items-center justify-center h-screen">
+                                    <SpinnerCircular  className="h-full text-center w-full "  />
+                     </div>
+        }
+    <Header />
+    <Routes>
+       <Route path="/" element={<Home />}  />
+       <Route path="/history" element={<History />} />
+     </Routes>
+    </BrowserRouter>
+    </>
+  
   );
 };
 
