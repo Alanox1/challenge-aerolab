@@ -2,19 +2,14 @@ import React, { useState } from 'react'
 import { useProductsAndPointsStore } from '../../../../store/productsAndPointsStore'
 import Product from '../product/Product'
 
-interface Product {
-  _id : number
-}
-
 
 const ProductsList = () => {
 
   const products = useProductsAndPointsStore(state => state.products)
   
-  console.log("productList", products)
   return (
     <div className='grid grid-cols-auto-fit-minmax  gap-6 mt-12'>
-        {products.map((product : Product)=> (
+        {products.map((product)=> (
             <Product key={product._id} product={product} />
         ))}
     </div>

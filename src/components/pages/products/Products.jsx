@@ -1,13 +1,6 @@
 import React from 'react'
-
-import { useProductsAndPointsStore } from '../../../store/productsAndPointsStore'
 import Filters from './filters/Filters'
 import ProductsList from './productsList/ProductsList'
-
-
-
-
-
 
 const Products = () => {
   return (

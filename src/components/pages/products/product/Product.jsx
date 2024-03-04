@@ -4,19 +4,8 @@ import buyBlue from "../../../../assets/icons/buy-blue.svg"
 import buyWhite from "../../../../assets/icons/buy-white.svg"
 import { useProductsAndPointsStore } from '../../../../store/productsAndPointsStore'
 
+const Product = ( {product} ) => {
 
-
-interface ProductType {
-    _id : number
-    category : string
-    name : string
-    img?: {
-        url?: string | undefined;
-    };
-    cost : number
-}
-
-const Product: React.FC<{ product: ProductType }> = ( {product} ) => {
   const [mostrarPrecio, setMostrarPrecio] = useState(false);
   const userData = useProductsAndPointsStore(state => state.userData)
   const reedem = useProductsAndPointsStore(state => state.reedem)
@@ -25,24 +14,18 @@ const Product: React.FC<{ product: ProductType }> = ( {product} ) => {
   const setLoadingProduct = useProductsAndPointsStore(state => state.setLoadingProduct)
  
 
-
   const handleBuyClick = () => {
-    // Lógica para comprar el producto
    
     setLoadingProduct(true);
     
-    // Simulando una petición a un servidor
+
     setTimeout(() => {
       setLoadingProduct(false);
-      // Lógica para comprar el producto...
-      // alert('¡Producto comprado con éxito!');
   
     }, 2000);
   };
 
 
-
-  const imgSrc = product.img || '';
   return (
     <>
     <article key={product._id} 
@@ -92,13 +75,10 @@ const Product: React.FC<{ product: ProductType }> = ( {product} ) => {
                       </button>
             </div>
                
-              }
+             }   
+    </article>
 
-              
-                
-</article>
     </>
-    
   )
 }
 

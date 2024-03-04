@@ -3,13 +3,11 @@ import { BrowserRouter as Router, Route, Routes, BrowserRouter } from 'react-rou
 import { SpinnerCircular } from 'spinners-react';
 import Header from "../components/pages/header/Header";
 import { useProductsAndPointsStore } from "../store/productsAndPointsStore";
-import Image from "../components/pages/image/Image";
-import Products from "../components/pages/products/Products";
 import Home from "../components/common/home/Home";
 import History from "../components/pages/history/History";
 
 
-const App: React.FC = () => {
+const App = () => {
   const getUserData = useProductsAndPointsStore(state => state.getUserData)
   const loading  = useProductsAndPointsStore(state => state.loading)
   const getProducts = useProductsAndPointsStore(state => state.getProducts)
