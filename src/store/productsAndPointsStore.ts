@@ -9,14 +9,13 @@ interface Product {
    name: string;
    cost: number;
    _id : number
-   // Otras propiedades de producto si las hay
 
 }
 interface ProductsAndPointsState {
           userData : UserData
           getUserData : () => Promise<void>
           loading : Boolean
-          products : []
+          products : Product[]
           originalProducts : []
           getProducts : () => Promise<void>
           reedem : (product : Product) => void
