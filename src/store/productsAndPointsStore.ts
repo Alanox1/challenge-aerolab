@@ -63,7 +63,7 @@ export const useProductsAndPointsStore = create<ProductsAndPointsState> ()((set,
             }))
           },
           reedem : async ( product ) => {
-            console.log(product._id)
+
             const res = await fetch(`https://coding-challenge-api.aerolab.co/redeem`,{
               method: 'POST',
               headers: {
@@ -77,7 +77,6 @@ export const useProductsAndPointsStore = create<ProductsAndPointsState> ()((set,
 
               const data = await res.json()
 
-              console.log(data)
             const newPrice = get().userData.points - product.cost  
 
             set(state => ({
@@ -94,16 +93,16 @@ export const useProductsAndPointsStore = create<ProductsAndPointsState> ()((set,
            
           },
           lowestPrice : () => {
-            const newProducts = [...get().products]; // Hacer una copia del arreglo de productos
-            const lowestPrices = newProducts.sort((a, b) => a.cost - b.cost); // Ordenar la copia
-            console.log(get().products, lowestPrices)
-            set({ products: lowestPrices }); //
+            const newProducts = [...get().products]; 
+            const lowestPrices = newProducts.sort((a, b) => a.cost - b.cost);
+           
+            set({ products: lowestPrices }); 
           },
 
           highestPrice : () => {
             
             const newProducts = [...get().products]
-            console.log(newProducts)
+            
             const highestPrices = newProducts.sort((a,b) => b.cost - a.cost)
 
             set(state => ({
@@ -139,8 +138,6 @@ export const useProductsAndPointsStore = create<ProductsAndPointsState> ()((set,
 
             
              const data = await res.json()
-
-             console.log(data)
 
               set(state => ({
               

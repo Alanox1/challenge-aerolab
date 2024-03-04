@@ -12,7 +12,7 @@ const Header = () => {
 
 
   return (
-    <div className='sticky top-0 z-10 bg-white shadow-md w-full'>
+    <div className='sticky top-0 z-50 bg-white shadow-md w-full'>
         <header  className="container mx-auto py-5 flex justify-between">
                 <img src={logo} className='mr-4' alt='logo' />
                <Link to={`/`}>

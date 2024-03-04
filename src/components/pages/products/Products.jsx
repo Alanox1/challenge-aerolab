@@ -4,7 +4,7 @@ import ProductsList from './productsList/ProductsList'
 
 const Products = () => {
   return (
-    <div className='container mx-auto pt-16 h-96'>
+    <div className='container mx-auto pt-16 pb-16'>
         <div className='w-11/12 mx-auto px-10'>
             <Filters />
             <ProductsList />
