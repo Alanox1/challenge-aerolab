@@ -33,7 +33,7 @@ const Product = ( {product} ) => {
              onMouseEnter={() => setMostrarPrecio(true)}
              onMouseLeave={() => setMostrarPrecio(false)}
     >           
-                <img src={buyBlue} className='absolute top-0 right-0 left-0 z-40 p-3' />   
+                <img src={buyBlue} className='absolute top-0 right-0 z-40 p-3' />   
              
                
                 <figure className='border-b border-gray-400 '>
