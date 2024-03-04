@@ -7,7 +7,7 @@ import Home from "../components/common/home/Home";
 import History from "../components/pages/history/History";
 
 
-const App: React.FC = () => {
+const App = () => {
   const getUserData = useProductsAndPointsStore(state => state.getUserData)
   const loading  = useProductsAndPointsStore(state => state.loading)
   const getProducts = useProductsAndPointsStore(state => state.getProducts)
