@@ -12,11 +12,12 @@ const History = () => {
     
   return (
     <div>
-        <div className='flex justify-center p-8 gap-8 flex-wrap h-auto w-full '>
+        <h1 className='text-3xl text-center mt-8'>History of products</h1>
+        <div className='flex justify-center p-8 gap-8 flex-wrap h-auto w-full '> 
             {history.map((product,index) => {
                 return <div className='w-80 h-auto border-solid border-orange-300 border-2 p-2  ' key={index}>
                             <img src={product.img.url} />
-                            <h1 className='text-2xl'>{product.name}</h1>
+                            <h2 className='text-2xl'>{product.name}</h2>
                             <p className='text-xl pt-2 pb-2'>{new Date(product.createDate).toLocaleDateString()}</p>
                             <div className='flex items-center text-xl'>
                                 <img src={coin} />
